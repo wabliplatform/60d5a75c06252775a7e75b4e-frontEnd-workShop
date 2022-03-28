@@ -1,0 +1,5 @@
+let apiDeliverableApi = new TempApi.DeliverableApi();import TempApi from '../src/index';let deliverable = new TempApi.Deliverable();$(
+      function () { $("#datepicker-2").datepicker({format: 'dd-mm-yyyy'}); }
+    );document.getElementById('iewye').onclick = (event) => {
+    event.preventDefault();
+    deliverable['dName'] = document.querySelector("[annotationname = 'dName']").value;deliverable['dStatus'] = document.querySelector("[annotationname = 'dStatus']").value;deliverable['dEnd'] = document.querySelector("[annotationname = 'dEnd']").value;apiDeliverableApi.createdeliverable( deliverable, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); {  location.href= '/homepage/'+response.body.query._id+'' ;}}});};window.onload = () => {};
