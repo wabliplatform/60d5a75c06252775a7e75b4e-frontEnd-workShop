@@ -1,9 +1,7 @@
-let apiWorkpackageApi = new TempApi.WorkpackageApi();import TempApi from '../src/index';document.getElementById('i811').onclick = (event) => {
+document.getElementById('i811').onclick = (event) => {
     event.preventDefault();
     {  location.href= '/homepage' ;}};document.getElementById('iuhly').onclick = (event) => {
     event.preventDefault();
     {  location.href= '/createProject' ;}};document.getElementById('i3voj').onclick = (event) => {
     event.preventDefault();
-    {  location.href= '/createWorkpackage' ;}};document.getElementById('iyefn').onclick = (event) => {
-    event.preventDefault();
-    let workpackageId = window.location.pathname.replace('/updateWorkpackage/','');let workpackage = new TempApi.Workpackage();workpackage['wpTitle'] = document.querySelector("[annotationname = 'wpTitle']").value;workpackage['wpPMS'] = document.querySelector("[annotationname = 'wpPMS']").value;workpackage['wpRole'] = document.querySelector("[annotationname = 'wpRole']").value; let opts = {workpackage};apiWorkpackageApi.updateworkpackage( workpackageId, opts, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); document.querySelector('[annotationname = wpTitle]').value = response.body.query.wpTitle ;document.querySelector('[annotationname = wpPMS]').value = response.body.query.wpPMS ;document.querySelector('[annotationname = wpRole]').value = response.body.query.wpRole ;{  location.href= '/homepage/'+response.body.query._id+'' ;}}});};window.onload = () => {let workpackageId = window.location.pathname.replace('/updateWorkpackage/','');apiWorkpackageApi.getworkpackage( workpackageId, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); try { document.querySelector('[annotationname = wpTitle]').value = response.body.query.wpTitle; } catch (e) { console.log(e) };try { document.querySelector('[annotationname = wpPMS]').value = response.body.query.wpPMS; } catch (e) { console.log(e) };try { document.querySelector('[annotationname = wpRole]').value = response.body.query.wpRole; } catch (e) { console.log(e) };}});};
+    {  location.href= '/createWorkpackage' ;}};window.onload = () => {};
