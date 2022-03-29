@@ -1,3 +1,7 @@
-$(
+let apiDeliverableApi = new TempApi.DeliverableApi();import TempApi from '../src/index';let deliverable = new TempApi.Deliverable();document.getElementById('i6flb').onclick = (event) => {
+    event.preventDefault();
+    let deliverableId = window.location.pathname.replace('/updateDeliverable/','');let deliverable = new TempApi.Deliverable();deliverable['dName'] = document.querySelector("[annotationname = 'dName']").value;deliverable['dStatus'] = document.querySelector("[annotationname = 'dStatus']").value;deliverable['dEnd'] = document.querySelector("[annotationname = 'dEnd']").value; let opts = {deliverable};apiDeliverableApi.updatedeliverable( deliverableId, opts, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); document.querySelector('[annotationname = dName]').value = response.body.query.dName ;document.querySelector('[annotationname = dStatus]').value = response.body.query.dStatus ;document.querySelector('[annotationname = dEnd]').value = response.body.query.dEnd ;}});};$(
       function () { $("#datepicker-2").datepicker({format: 'dd-mm-yyyy'}); }
-    );window.onload = () => {};
+    );document.getElementById('iewye').onclick = (event) => {
+    event.preventDefault();
+    deliverable['dName'] = document.querySelector("[annotationname = 'dName']").value;deliverable['dStatus'] = document.querySelector("[annotationname = 'dStatus']").value;deliverable['dEnd'] = document.querySelector("[annotationname = 'dEnd']").value;apiDeliverableApi.createdeliverable( deliverable, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); {  location.href= '/homepage/'+response.body.query._id+'' ;}}});};window.onload = () => {};
